@@ -1,11 +1,10 @@
 package com.example.homework
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import com.example.homework.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val KEY_COUNT = "KEY_COUNT"
+        const val EXTRA_MESSAGE = "extra_message"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         mShowCount = binding.showCount
 
         binding.buttonToast.setOnClickListener {
-            showToast()
+            sendToToastActivity()
         }
 
         binding.buttonZero.setOnClickListener {
@@ -55,8 +55,11 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun showToast() {
-        Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT).show()
+    private fun sendToToastActivity() {
+        val intent = Intent(this, ToastActivity::class.java)
+        val text = mCount.toString()
+        intent.putExtra(EXTRA_MESSAGE, text)
+        startActivity(intent)
     }
 
     private fun countUp() {

@@ -33,7 +33,7 @@
         android:textSize="160sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_zero"
+        app:layout_constraintStart_toEndOf="@+id/button_toast"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
